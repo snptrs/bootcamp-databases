@@ -23,11 +23,10 @@ RSpec.describe AlbumRepository do
   
   it "returns an album by id" do
     repo = AlbumRepository.new
-    albums = repo.find(1)
+    album = repo.find(1)
     
-    expect(albums.length).to eq(1)
-    expect(albums.first.title).to eq('Trompe le Monde')
-    expect(albums.first.release_year).to eq('1991')
-    expect(albums.first.artist_id).to eq('2')
+    expect(album.title).to eq('Trompe le Monde')
+    expect(album.release_year).to eq('1991')
+    expect(album.artist_id).to eq('2')
   end
 end

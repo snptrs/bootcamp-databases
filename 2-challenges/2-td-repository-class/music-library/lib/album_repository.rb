@@ -32,8 +32,7 @@ class AlbumRepository
       album.release_year = record['release_year']
       album.artist_id = record['artist_id']
 
-      albums << album
+      return album
     end
-    return albums
   end
 end
