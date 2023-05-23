@@ -1,5 +1,4 @@
 require_relative 'book'
-require_relative 'database_connection'
 
 class BookRepository
   def all
@@ -7,8 +6,7 @@ class BookRepository
     books = []
 
     sql = "SELECT id, title, author_name FROM books;"
-    db = DatabaseConnection.connect('book_store')
-    result_set = db.exec_params(sql, [])
+    result_set = DatabaseConnection.exec_params(sql, [])
 
     result_set.each do |result|
       book = Book.new

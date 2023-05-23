@@ -1,7 +1,9 @@
 require_relative 'book_repository'
+require_relative 'database_connection'
 
 class App
   def list
+    DatabaseConnection.connect('book_store')
     repo = BookRepository.new
     books = repo.all
 
