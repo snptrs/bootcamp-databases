@@ -6,21 +6,21 @@ _Copy this recipe template to design and create a database table from a specific
 
 ```
 # EXAMPLE USER STORY:
-# (analyse only the relevant part - here the final line).
 
-As a music lover,
-So I can organise my records,
-I want to keep a list of albums' titles.
+As a coach
+So I can get to know all students
+I want to see a list of students' names.
 
-As a music lover,
-So I can organise my records,
-I want to keep a list of albums' release year.
+As a coach
+So I can get to know all students
+I want to see a list of students' cohorts.
+
 ```
 
 ```
 Nouns:
 
-album, title, release year
+students, list, names, cohorts
 ```
 
 ## 2. Infer the Table Name and Columns
@@ -29,11 +29,11 @@ Put the different nouns in this table. Replace the example with your own nouns.
 
 | Record                | Properties          |
 | --------------------- | ------------------  |
-| album                 | title, release year
+| student               | name, cohort
 
-Name of the table (always plural): `albums` 
+Name of the table (always plural): `students` 
 
-Column names: `title`, `release_year`
+Column names: `name`, `cohort`
 
 ## 3. Decide the column types.
 
@@ -47,22 +47,22 @@ Remember to **always** have the primary key `id` as a first column. Its type wil
 # EXAMPLE:
 
 id: SERIAL
-title: text
-release_year: int
+name: text
+cohort: text
 ```
 
 ## 4. Write the SQL.
 
 ```sql
 -- EXAMPLE
--- file: albums_table.sql
+-- file: students_table.sql
 
 -- Replace the table name, columm names and types.
 
-CREATE TABLE albums (
+CREATE TABLE students (
   id SERIAL PRIMARY KEY,
-  title text,
-  release_year int
+  name text,
+  cohort text
 );
 ```
 
