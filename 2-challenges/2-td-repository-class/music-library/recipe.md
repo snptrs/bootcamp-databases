@@ -164,6 +164,16 @@ albums.first.title # => 'Highway 61 Revisited'
 albums.first.release_year # => 1965
 albums.first.artist_id # => 1
 
+# 2
+# Select an album by id
+repo = AlbumRepository.new
+albums = repo.find(1)
+
+albums.length #=> 2
+albums.first.title # => 'Trompe le Monde'
+albums.first.release_year # => 1991
+albums.first.artist_id # => 2
+
 
 
 ## 7. Reload the SQL seeds before each test run
@@ -179,7 +189,7 @@ This is so you get a fresh table contents every time you run the test suite.
 
 def reset_students_table
   seed_sql = File.read('spec/seeds_students.sql')
-  connection = PG.connect({ host: '127.0.0.1', dbname: 'students' })
+  connection = PG.connect({ host: '127.0.0.1', dbname: 'music_library_test' })
   connection.exec(seed_sql)
 end
 
