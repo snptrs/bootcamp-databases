@@ -52,12 +52,12 @@ class UserRepository
   # Creates a new user record
   # One argument: user object
   def create(user)
-    # INSERT INTO users (name, email) VALUES($1, $2);
-
-    # Returns nothing [?]
+    sql = 'INSERT INTO users (name, email) VALUES($1, $2);'
+    DatabaseConnection.exec_params(sql, [user.name, user.email])
   end
 
-  def delete(user)
-    # DELETE FROM users WHERE id = $1;
+  def delete(id)
+    sql = 'DELETE FROM users WHERE id = $1;'
+    DatabaseConnection.exec_params(sql, [id])
   end
 end

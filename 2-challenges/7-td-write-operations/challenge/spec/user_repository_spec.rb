@@ -32,5 +32,25 @@ RSpec.describe UserRepository do
       expect(users[0].email).to eq "appleseed@example.com"
     end
   end
+
+  context "when adding a user" do
+    it "adds them to the database" do
+      user_repo = UserRepository.new
+      user = User.new
+      user.name = "Jenny Pip"
+      user.email = "jennypip@example.com"
+      user_repo.create(user)
+      expect(user_repo.all).to include(have_attributes(name: user.name, email: user.email))
+    end
+  end
+
+  context "when deleting a user" do
+    it "removes them from the database" do
+      user_repo = UserRepository.new
+      user_repo.delete(1)
+      users = user_repo.find(1)
+      expect(users.length).to eq 0
+    end
+  end
 end
 
