@@ -21,6 +21,16 @@ RSpec.describe UserRepository do
       expect(users[0].name).to eq "Jane Doe"
       expect(users[0].email).to eq "janedoe@example.com"
     end
+
+    it "returns a selected user by id" do
+      user_repo = UserRepository.new
+      users = user_repo.find(2)
+
+      expect(users.length).to eq 1
+      expect(users[0].id).to eq "2"
+      expect(users[0].name).to eq "Jonny Appleseed"
+      expect(users[0].email).to eq "appleseed@example.com"
+    end
   end
 end
 

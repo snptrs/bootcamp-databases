@@ -33,6 +33,20 @@ class UserRepository
     # SELECT id, name, email FROM users WHERE id = $1;
 
     # Returns a single User object.
+    sql = 'SELECT id, name, email FROM users WHERE id = $1;'
+    result_set = DatabaseConnection.exec_params(sql, [id])
+
+    users = []
+
+    result_set.each do |record|
+      user = User.new
+      user.id = record['id']
+      user.name = record['name']
+      user.email = record['email']
+
+      users << user
+    end
+    return users
   end
 
   # Creates a new user record
