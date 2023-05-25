@@ -17,7 +17,7 @@ RSpec.describe UserRepository do
       users = user_repo.all
 
       expect(users.length).to eq 2
-      expect(users[0].id).to eq 1
+      expect(users[0].id).to eq "1"
       expect(users[0].name).to eq "Jane Doe"
       expect(users[0].email).to eq "janedoe@example.com"
     end
