@@ -10,6 +10,7 @@ RSpec.describe do
     expect(io).to receive(:puts).with("Enter your choice:").ordered
     expect(io).to receive(:gets).and_return("1").ordered
     expect(io).to receive(:puts).with("Here is the list of albums:").ordered
+    expect(io).to receive(:puts).at_least(:once)
     
     app = Application.new(
       'music_library',
