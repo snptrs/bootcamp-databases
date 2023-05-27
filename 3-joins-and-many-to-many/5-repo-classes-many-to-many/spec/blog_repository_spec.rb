@@ -17,7 +17,16 @@ RSpec.describe BlogRepository do
       posts = repo.find_by_tag('coding')
       expect(posts.length).to eq 4
       expect(posts.first.title).to eq "How to use Git"
-      binding.irb
+    end
+  end
+  
+  context "finding tags for posts" do
+    it "returns the tags for selected post" do
+      repo = BlogRepository.new
+      tags = repo.find_by_post(2)
+      expect(tags.length).to eq 2
+      expect(tags[0].name).to eq 'coding'
+      expect(tags[1].name).to eq 'ruby'
     end
   end
 end
