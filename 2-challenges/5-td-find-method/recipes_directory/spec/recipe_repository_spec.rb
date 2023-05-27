@@ -1,4 +1,4 @@
-require 'recipe_repository'
+require_relative '../lib/recipe_repository'
 
 RSpec.describe RecipeRepository do
   def reset_recipes_table
